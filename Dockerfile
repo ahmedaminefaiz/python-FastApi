@@ -42,7 +42,7 @@ COPY --from=builder /venv /venv
 COPY --from=builder /model_cache /model_cache
 
 RUN useradd --no-create-home appuser && \
-    chmod -R 755 /model_cache
+    chown -R appuser /model_cache
 
 USER appuser
 
